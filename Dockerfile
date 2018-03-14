@@ -1,9 +1,6 @@
-FROM alpine:3.7
+FROM ubuntu:18.04
 
-RUN apk --no-cache add --update \
-&& apk --no-cache add ca-certificates wget \
-&& update-ca-certificates \
-&& apk --no-cache add openssl \
+RUN apt-get update && apt-get install -y wget \
 && wget -O bluemix-cli.tar.gz https://clis.ng.bluemix.net/download/bluemix-cli/latest/linux64 \
 && tar xvfz bluemix-cli.tar.gz \
 && rm bluemix-cli.tar.gz \
